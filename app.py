@@ -3,14 +3,14 @@ import requests
 
 st.title('Прогноз цени на жильё')
 
-MedInc = st.slider("Медианный доход", 0, 1000, 8, 5)
-HouseAge = st.slider("Средний возраст жилья", 0, 1000, 8, 5)
-AveRooms = st.slider("Общее число комнат", 0, 1000, 8, 5)
-AveBedrms = st.slider("Общее число спален", 0, 1000, 8, 5)
-Population = st.slider("Население", 0, 1000, 8, 5)
-AveOccup = st.slider("Среднее кол-во домохозяйств", 0, 1000, 8, 5)
-Latitude = st.slider("Широта", 0, 1000, 8, 5)
-Longitude = st.slider("Долгота", 0, 1000, 8, 5)
+MedInc = st.slider("Медианный доход", 0, 1000, 8, 1)
+HouseAge = st.slider("Средний возраст жилья", 0, 200, 8, 1)
+AveRooms = st.slider("Общее число комнат", 0, 15, 8, 1)
+AveBedrms = st.slider("Общее число спален", 0, 5, 8, 1)
+Population = st.slider("Население", 0, 1000, 8, 1)
+AveOccup = st.slider("Среднее кол-во домохозяйств", 0, 1000, 8, 1)
+Latitude = st.slider("Широта", -180, 180, 8, 1)
+Longitude = st.slider("Долгота", -180, 180, 8, 1)
 
 if st.button("Получить прогноз"):
 
@@ -25,7 +25,7 @@ if st.button("Получить прогноз"):
     "Latitude": Latitude,
     "Longitude": Longitude
 }
-    url = 'http://127.0.0.1:8000/predict'
+    url = 'https://dpo-regression.onrender.com/predict'
     response = requests.post(url, json=data)
 
     if response.status_code == 200:
