@@ -19,11 +19,11 @@ with col1:
     )
     AveRooms = st.number_input(
         "Среднее количество комнат:",
-        min_value=1.0, max_value=15.0, value=5.0, step=1
+        min_value=1.0, max_value=15.0, value=5.0, step=1.0
     )
     AveBedrms = st.number_input(
         "Среднее количество спален:",
-        min_value=1.0, max_value=5.0, value=1.0, step=1
+        min_value=1.0, max_value=5.0, value=1.0, step=1.0
     )
 
 with col2:
